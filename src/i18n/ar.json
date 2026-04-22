@@ -1,0 +1,68 @@
+{
+  "common": {
+    "dashboard": "لوحة القيادة",
+    "profile": "الملف الشخصي",
+    "users": "المستخدمون",
+    "adminDashboard": "لوحة الإدارة",
+    "welcome": "مرحباً بك في لوحة القيادة",
+    "myProfile": "ملفي الشخصي",
+    "userProfile": "ملف {{name}} الشخصي",
+    "backToDashboard": "العودة إلى لوحة القيادة",
+    "editProfile": "تعديل الملف الشخصي",
+    "saveChanges": "حفظ التغييرات",
+    "saving": "جاري الحفظ...",
+    "cancel": "إلغاء",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "role": "الدور",
+    "memberSince": "عضو منذ",
+    "lastUpdated": "آخر تحديث",
+    "profileNotFound": "الملف الشخصي غير موجود",
+    "adminCanChangeRole": "يمكن للمسؤول تغيير الدور من قائمة المستخدمين",
+    "logout": "تسجيل الخروج"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب"
+  },
+  "errors": {
+    "failedToFetchProfile": "فشل في جلب الملف الشخصي",
+    "failedToUpdateProfile": "فشل في تحديث الملف الشخصي",
+    "nameRequired": "الاسم مطلوب",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "invalidEmail": "عنوان البريد الإلكتروني غير صالح"
+  },
+  "navigation": {
+    "menu": "القائمة",
+    "closeSidebar": "إغلاق الشريط الجانبي"
+  },
+  "roles": {
+    "admin": "مسؤول",
+    "user": "مستخدم"
+  },
+  "dashboard": {
+    "viewAndEditProfile": "عرض وتعديل ملفك الشخصي",
+    "manageUsers": "إدارة المستخدمين (للمسؤولين فقط)"
+  },
+  "users": {
+    "searchUsers": "البحث عن المستخدمين...",
+    "created": "تاريخ الإنشاء",
+    "actions": "الإجراءات",
+    "edit": "تعديل",
+    "loading": "جاري التحميل...",
+    "noUsersFound": "لم يتم العثور على مستخدمين",
+    "previous": "السابق",
+    "next": "التالي",
+    "showing": "عرض",
+    "to": "إلى",
+    "of": "من",
+    "results": "نتيجة",
+    "perPage": "لكل صفحة",
+    "delete": "حذف",
+    "changeRole": "تغيير الدور",
+    "deleteUser": "حذف المستخدم",
+    "deleteUserConfirmation": "هل أنت متأكد من حذف {{name}}؟ لا يمكن التراجع عن هذه الإجراء.",
+    "changeUserRole": "تغيير دور المستخدم",
+    "changeRoleConfirmation": "تغيير دور {{name}}:"
+  }
+}

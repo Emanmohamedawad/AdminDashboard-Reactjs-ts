@@ -1,12 +1,20 @@
+import React from "react";
+import "./index.css";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+import App from "./App";
 
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from "react-router-dom";
-import './index.css'
-import App from './App.tsx'
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  throw new Error("Root element not found");
+}
 
-createRoot(document.getElementById('root')!).render(
-
-    <BrowserRouter>
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
       <App />
-    </BrowserRouter>
-)
+    </Provider>
+  </React.StrictMode>,
+);

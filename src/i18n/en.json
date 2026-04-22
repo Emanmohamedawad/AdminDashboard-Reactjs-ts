@@ -1,0 +1,68 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "users": "Users",
+    "adminDashboard": "Admin Dashboard",
+    "welcome": "Welcome to Dashboard",
+    "myProfile": "My Profile",
+    "userProfile": "{{name}}'s Profile",
+    "backToDashboard": "Back to Dashboard",
+    "editProfile": "Edit Profile",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "memberSince": "Member since",
+    "lastUpdated": "Last updated",
+    "profileNotFound": "Profile not found",
+    "adminCanChangeRole": "Admin can change role from users list",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register"
+  },
+  "errors": {
+    "failedToFetchProfile": "Failed to fetch profile",
+    "failedToUpdateProfile": "Failed to update profile",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "invalidEmail": "Invalid email address"
+  },
+  "navigation": {
+    "menu": "Menu",
+    "closeSidebar": "Close sidebar"
+  },
+  "roles": {
+    "admin": "Admin",
+    "user": "User"
+  },
+  "dashboard": {
+    "viewAndEditProfile": "View and edit your profile",
+    "manageUsers": "Manage users (Admin only)"
+  },
+  "users": {
+    "searchUsers": "Search users...",
+    "created": "Created",
+    "actions": "Actions",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "noUsersFound": "No users found",
+    "previous": "Previous",
+    "next": "Next",
+    "showing": "Showing",
+    "to": "to",
+    "of": "of",
+    "results": "results",
+    "perPage": "per page",
+    "delete": "Delete",
+    "changeRole": "Change Role",
+    "deleteUser": "Delete User",
+    "deleteUserConfirmation": "Are you sure you want to delete {{name}}? This action cannot be undone.",
+    "changeUserRole": "Change User Role",
+    "changeRoleConfirmation": "Change role for {{name}}:"
+  }
+}

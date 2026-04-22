@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": "5",
+      "name": "eman mohamed user",
+      "email": "emanmohamed2799@gmail.com",
+      "password": "eman123",
+      "role": "user",
+      "createdAt": "2026-04-22T19:59:55.880Z",
+      "updatedAt": "2026-04-22T23:08:38.919Z"
+    },
+    {
+      "id": "4",
+      "name": "Bob Wilson",
+      "email": "bob@example.com",
+      "password": "bob123",
+      "role": "admin",
+      "createdAt": "2024-01-15T16:45:00Z",
+      "updatedAt": "2024-01-15T16:45:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "password": "jane123",
+      "role": "user",
+      "createdAt": "2024-01-10T09:15:00Z",
+      "updatedAt": "2024-01-10T09:15:00Z"
+    },
+    {
+      "id": "1",
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin",
+      "createdAt": "2024-01-01T10:00:00Z",
+      "updatedAt": "2024-01-01T10:00:00Z"
+    }
+  ],
+  "activities": [
+    {
+      "id": "1",
+      "userId": "1",
+      "action": "login",
+      "details": "Admin logged in",
+      "timestamp": "2024-04-22T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "action": "login",
+      "details": "User logged in",
+      "timestamp": "2024-04-22T10:25:00Z"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "action": "user_created",
+      "details": "Created new user: jane@example.com",
+      "timestamp": "2024-04-22T09:50:00Z"
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "action": "role_changed",
+      "details": "Changed role for user bob@example.com to admin",
+      "timestamp": "2024-04-22T09:30:00Z"
+    }
+  ]
+}

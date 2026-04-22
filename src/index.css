@@ -1,61 +1,226 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* Light Theme */
+:root,
+.light {
+  /* Color Palette */
+  --primary: #1a1953;
+  --secondary: #080616;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.1);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* Component Colors */
+  --sidebar-bg: #ffffff;
+  --header-bg: #ffffff;
+  --main-bg: #f9fafb;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --hover-bg: #f3f4f6;
+  --active-bg: #e5e7eb;
 
-  font: 18px/145% var(--sans);
+  /* Accent Colors */
+  --accent-primary: #1a1953;
+  --accent-hover: #0f0e3a;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Typography - Arabic-friendly fonts */
+  --sans:
+    "Noto Sans Arabic", "Segoe UI", Roboto, "Arial Unicode MS", "Tahoma",
+    system-ui, sans-serif;
+  --heading:
+    "Noto Sans Arabic", "Segoe UI", Roboto, "Arial Unicode MS", "Tahoma",
+    system-ui, sans-serif;
+  --mono: ui-monospace, Consolas, "Courier New", monospace;
+
+  font: 18px/1.6 var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
+  color-scheme: light;
+  color: var(--text-primary);
+  background: var(--main-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Arabic text improvements */
+  line-height: 1.7;
+  font-variant-ligatures: contextual;
+  font-feature-settings: "kern", "liga", "clig", "calt";
 
   @media (max-width: 1024px) {
     font-size: 16px;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* Dark Theme */
+.dark {
+  /* Color Palette */
+  --primary: #1a1953;
+  --secondary: #080616;
+  --background: #000000;
+  --surface: #080616;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --shadow: rgba(0, 0, 0, 0.3);
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  /* Component Colors */
+  --sidebar-bg: #080616;
+  --header-bg: #080616;
+  --main-bg: #000000;
+  --card-bg: #080616;
+  --input-bg: #1f2937;
+  --hover-bg: #1f2937;
+  --active-bg: #374151;
+
+  /* Accent Colors */
+  --accent-primary: #4f46e5;
+  --accent-hover: #6366f1;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background: var(--main-bg);
+}
+
+/* Base styles that apply to both themes */
+body {
+  margin: 0;
+  background: var(--main-bg);
+  color: var(--text-primary);
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
   }
 }
 
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Arabic text specific improvements */
+html[lang="ar"],
+html[lang="ar"] * {
+  font-family:
+    "Noto Sans Arabic", "Segoe UI", Roboto, "Arial Unicode MS", "Tahoma",
+    system-ui, sans-serif !important;
+  line-height: 1.8 !important;
+  letter-spacing: normal;
+}
+
+/* Ensure proper Arabic text rendering */
+.arabic-text {
+  font-family:
+    "Noto Sans Arabic", "Segoe UI", Roboto, "Arial Unicode MS", "Tahoma",
+    system-ui, sans-serif;
+  line-height: 1.8;
+  direction: rtl;
+  text-align: right;
+  font-feature-settings: "kern", "liga", "clig", "calt", "rlig";
+  font-variant-ligatures: contextual;
+}
+
+/* Fix for Arabic text in headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    "Noto Sans Arabic", "Segoe UI", Roboto, "Arial Unicode MS", "Tahoma",
+    system-ui, sans-serif;
+  line-height: 1.4;
+  font-feature-settings: "kern", "liga", "clig", "calt", "rlig";
+}
+
+/* Fix for Arabic text in paragraphs and spans */
+p,
+span,
+td,
+th,
+div {
+  font-family:
+    "Noto Sans Arabic", "Segoe UI", Roboto, "Arial Unicode MS", "Tahoma",
+    system-ui, sans-serif;
+  line-height: 1.7;
+  font-feature-settings: "kern", "liga", "clig", "calt", "rlig";
+}
+
 #root {
-  width: 1126px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
