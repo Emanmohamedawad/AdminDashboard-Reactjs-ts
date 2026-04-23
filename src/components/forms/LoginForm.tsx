@@ -1,4 +1,5 @@
-﻿import { Formik, Form, Field, ErrorMessage } from "formik";
+﻿import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,9 +13,20 @@ import {
 } from "../../features/auth/authSlice";
 import { authAPI } from "../../services/authAPI";
 
+interface ApiError {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
 const loginSchema = Yup.object({
   email: Yup.string()
-    .email("Invalid email address")
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      "Invalid email format",
+    )
     .required("Email is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
@@ -35,6 +47,7 @@ const LoginForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { loading, error } = useSelector((state: RootState) => state.auth);
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const handleSubmit = async (
     values: LoginFormData,
@@ -45,10 +58,16 @@ const LoginForm: React.FC = () => {
       const response = await authAPI.login(values);
       dispatch(loginSuccess(response));
       navigate("/dashboard");
-    } catch {
+    } catch (error: unknown) {
       // Don't let the error propagate to prevent page reload
-      const errorMessage = "Login failed";
-      dispatch(loginFailure(errorMessage));
+      // Only show API errors, let Formik handle validation errors
+      if (error && typeof error === "object" && "response" in error) {
+        const apiError = error as ApiError;
+        const errorMessage = apiError.response?.data?.message || "Login failed";
+        dispatch(loginFailure(errorMessage));
+      } else {
+        dispatch(loginFailure("Login failed"));
+      }
     } finally {
       setSubmitting(false);
     }
@@ -243,11 +262,11 @@ const LoginForm: React.FC = () => {
                           </svg>
                         </div>
                         <Field
-                          type="password"
+                          type={showPassword ? "text" : "password"}
                           name="password"
                           id="password"
                           autoComplete="current-password"
-                          className={`block w-full pl-10 pr-3 py-3 rounded-xl border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed ${
+                          className={`block w-full pl-10 pr-12 py-3 rounded-xl border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed ${
                             touched.password && errors.password
                               ? "border-red-500"
                               : ""
@@ -275,6 +294,26 @@ const LoginForm: React.FC = () => {
                           }}
                           placeholder="Enter your password"
                         />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+                          style={{ color: "var(--text-secondary)" }}
+                        >
+                          <svg
+                            width="20px"
+                            height="20px"
+                            viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="#000000"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M1 10c0-3.9 3.1-7 7-7s7 3.1 7 7h-1c0-3.3-2.7-6-6-6s-6 2.7-6 6H1zm4 0c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3zm1 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"
+                            />
+                          </svg>
+                        </button>
                       </div>
                       <ErrorMessage name="password">
                         {(msg) => (

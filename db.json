@@ -2,21 +2,21 @@
   "users": [
     {
       "id": "5",
+      "name": "eman test 1",
+      "email": "emohamed@smart.sa",
+      "password": "eman123",
+      "role": "user",
+      "createdAt": "2026-04-23T00:51:00.099Z",
+      "updatedAt": "2026-04-23T00:51:00.099Z"
+    },
+    {
+      "id": "5",
       "name": "eman mohamed user",
       "email": "emanmohamed2799@gmail.com",
       "password": "eman123",
       "role": "user",
       "createdAt": "2026-04-22T19:59:55.880Z",
       "updatedAt": "2026-04-22T23:08:38.919Z"
-    },
-    {
-      "id": "4",
-      "name": "Bob Wilson",
-      "email": "bob@example.com",
-      "password": "bob123",
-      "role": "admin",
-      "createdAt": "2024-01-15T16:45:00Z",
-      "updatedAt": "2024-01-15T16:45:00Z"
     },
     {
       "id": "3",
@@ -38,30 +38,12 @@
     },
     {
       "id": "5",
-      "name": "eman test 1",
-      "email": "emohamed@smart.sa",
+      "name": "eman test4",
+      "email": "emohamed2@smart.sa",
       "password": "eman123",
       "role": "user",
-      "createdAt": "2026-04-23T00:51:00.099Z",
-      "updatedAt": "2026-04-23T00:51:00.099Z"
-    },
-    {
-      "id": "6",
-      "name": "eman test 2",
-      "email": "emanmohamed27999@gmail.com",
-      "password": "eman123",
-      "role": "user",
-      "createdAt": "2026-04-23T00:57:04.454Z",
-      "updatedAt": "2026-04-23T00:57:04.454Z"
-    },
-    {
-      "id": "7",
-      "name": "eman test 3",
-      "email": "emohamed1@smart.sa",
-      "password": "eman123",
-      "role": "user",
-      "createdAt": "2026-04-23T00:59:38.325Z",
-      "updatedAt": "2026-04-23T00:59:38.325Z"
+      "createdAt": "2026-04-23T01:11:55.691Z",
+      "updatedAt": "2026-04-23T01:11:55.691Z"
     }
   ],
   "activities": [
