@@ -253,16 +253,22 @@ const RegisterForm: React.FC = () => {
                             />
                           </svg>
                         </div>
-                        <input
-                          {...register("email")}
-                          id="email"
+                        <Field
                           type="email"
+                          name="email"
+                          id="email"
                           autoComplete="email"
-                          required
-                          className="block w-full pl-10 pr-3 py-3 border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed"
+                          className={`block w-full pl-10 pr-3 py-3 border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed ${
+                            touched.email && errors.email
+                              ? "border-red-500"
+                              : ""
+                          }`}
                           style={{
                             backgroundColor: "var(--input-bg)",
-                            borderColor: "var(--border-color)",
+                            borderColor:
+                              touched.email && errors.email
+                                ? "var(--error)"
+                                : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
                           onFocus={(e) => {
@@ -273,31 +279,35 @@ const RegisterForm: React.FC = () => {
                           }}
                           onBlur={(e) => {
                             e.currentTarget.style.borderColor =
-                              "var(--border-color)";
+                              touched.email && errors.email
+                                ? "var(--error)"
+                                : "var(--border-color)";
                             e.currentTarget.style.boxShadow = "none";
                           }}
                           placeholder="Enter your email"
                         />
                       </div>
-                      {errors.email && (
-                        <p
-                          className="mt-2 text-sm flex items-center leading-relaxed"
-                          style={{ color: "var(--error)" }}
-                        >
-                          <svg
-                            className="h-4 w-4 mr-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
+                      <ErrorMessage name="email">
+                        {(msg) => (
+                          <p
+                            className="mt-2 text-sm flex items-center leading-relaxed"
+                            style={{ color: "var(--error)" }}
                           >
-                            <path
-                              fillRule="evenodd"
-                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          {errors.email.message}
-                        </p>
-                      )}
+                            <svg
+                              className="h-4 w-4 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {msg}
+                          </p>
+                        )}
+                      </ErrorMessage>
                     </div>
 
                     <div>
@@ -325,16 +335,22 @@ const RegisterForm: React.FC = () => {
                             />
                           </svg>
                         </div>
-                        <input
-                          {...register("password")}
-                          id="password"
+                        <Field
                           type="password"
+                          name="password"
+                          id="password"
                           autoComplete="new-password"
-                          required
-                          className="block w-full pl-10 pr-3 py-3 border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed"
+                          className={`block w-full pl-10 pr-3 py-3 border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed ${
+                            touched.password && errors.password
+                              ? "border-red-500"
+                              : ""
+                          }`}
                           style={{
                             backgroundColor: "var(--input-bg)",
-                            borderColor: "var(--border-color)",
+                            borderColor:
+                              touched.password && errors.password
+                                ? "var(--error)"
+                                : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
                           onFocus={(e) => {
@@ -345,31 +361,35 @@ const RegisterForm: React.FC = () => {
                           }}
                           onBlur={(e) => {
                             e.currentTarget.style.borderColor =
-                              "var(--border-color)";
+                              touched.password && errors.password
+                                ? "var(--error)"
+                                : "var(--border-color)";
                             e.currentTarget.style.boxShadow = "none";
                           }}
                           placeholder="Create a password"
                         />
                       </div>
-                      {errors.password && (
-                        <p
-                          className="mt-2 text-sm flex items-center leading-relaxed"
-                          style={{ color: "var(--error)" }}
-                        >
-                          <svg
-                            className="h-4 w-4 mr-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
+                      <ErrorMessage name="password">
+                        {(msg) => (
+                          <p
+                            className="mt-2 text-sm flex items-center leading-relaxed"
+                            style={{ color: "var(--error)" }}
                           >
-                            <path
-                              fillRule="evenodd"
-                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          {errors.password.message}
-                        </p>
-                      )}
+                            <svg
+                              className="h-4 w-4 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {msg}
+                          </p>
+                        )}
+                      </ErrorMessage>
                     </div>
 
                     <div>
@@ -397,16 +417,22 @@ const RegisterForm: React.FC = () => {
                             />
                           </svg>
                         </div>
-                        <input
-                          {...register("confirmPassword")}
-                          id="confirmPassword"
+                        <Field
                           type="password"
+                          name="confirmPassword"
+                          id="confirmPassword"
                           autoComplete="new-password"
-                          required
-                          className="block w-full pl-10 pr-3 py-3 rounded-b-xl border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed"
+                          className={`block w-full pl-10 pr-3 py-3 rounded-b-xl border transition-all duration-200 focus:ring-2 focus:ring-offset-2 leading-relaxed ${
+                            touched.confirmPassword && errors.confirmPassword
+                              ? "border-red-500"
+                              : ""
+                          }`}
                           style={{
                             backgroundColor: "var(--input-bg)",
-                            borderColor: "var(--border-color)",
+                            borderColor:
+                              touched.confirmPassword && errors.confirmPassword
+                                ? "var(--error)"
+                                : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
                           onFocus={(e) => {
@@ -417,31 +443,35 @@ const RegisterForm: React.FC = () => {
                           }}
                           onBlur={(e) => {
                             e.currentTarget.style.borderColor =
-                              "var(--border-color)";
+                              touched.confirmPassword && errors.confirmPassword
+                                ? "var(--error)"
+                                : "var(--border-color)";
                             e.currentTarget.style.boxShadow = "none";
                           }}
                           placeholder="Confirm your password"
                         />
                       </div>
-                      {errors.confirmPassword && (
-                        <p
-                          className="mt-2 text-sm flex items-center leading-relaxed"
-                          style={{ color: "var(--error)" }}
-                        >
-                          <svg
-                            className="h-4 w-4 mr-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
+                      <ErrorMessage name="confirmPassword">
+                        {(msg) => (
+                          <p
+                            className="mt-2 text-sm flex items-center leading-relaxed"
+                            style={{ color: "var(--error)" }}
                           >
-                            <path
-                              fillRule="evenodd"
-                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          {errors.confirmPassword.message}
-                        </p>
-                      )}
+                            <svg
+                              className="h-4 w-4 mr-1"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {msg}
+                          </p>
+                        )}
+                      </ErrorMessage>
                     </div>
                   </div>
 
@@ -498,7 +528,7 @@ const RegisterForm: React.FC = () => {
                   <div className="space-y-4">
                     <button
                       type="submit"
-                      disabled={loading}
+                      disabled={isSubmitting || loading}
                       className="group relative w-full flex justify-center py-3 px-4 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none leading-relaxed"
                       style={{
                         background:
