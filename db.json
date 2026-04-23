@@ -2,6 +2,15 @@
   "users": [
     {
       "id": "5",
+      "name": "eman test4",
+      "email": "emohamed2@smart.sa",
+      "password": "eman123",
+      "role": "admin",
+      "createdAt": "2026-04-23T01:11:55.691Z",
+      "updatedAt": "2026-04-23T01:29:22.104Z"
+    },
+    {
+      "id": "5",
       "name": "eman test 1",
       "email": "emohamed@smart.sa",
       "password": "eman123",
@@ -35,15 +44,6 @@
       "role": "admin",
       "createdAt": "2024-01-01T10:00:00Z",
       "updatedAt": "2024-01-01T10:00:00Z"
-    },
-    {
-      "id": "5",
-      "name": "eman test4",
-      "email": "emohamed2@smart.sa",
-      "password": "eman123",
-      "role": "user",
-      "createdAt": "2026-04-23T01:11:55.691Z",
-      "updatedAt": "2026-04-23T01:11:55.691Z"
     }
   ],
   "activities": [

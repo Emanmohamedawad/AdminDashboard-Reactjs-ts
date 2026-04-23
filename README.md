@@ -2,6 +2,21 @@
 
 A full-stack React + TypeScript admin dashboard with role-based access control, authentication, and user management. Built with React 19, Redux Toolkit, React Router, and Tailwind CSS.
 
+For Login Admin
+  ```json
+  {
+    "email": "admin@example.com",
+    "password": "admin123"
+  }
+  ```
+  For Login User
+    ```json
+  {
+    "email": "emohamed@smart.sa",
+    "password": "eman123"
+  }
+  ```
+
 ## 🎯 Project Overview
 
 This project implements a complete admin dashboard system with:
@@ -25,7 +40,6 @@ This project implements a complete admin dashboard system with:
 - [x] **Dashboard**: Shows current user info and role
 - [x] **Users List (Admin-only)**: Searchable, sortable table with pagination
 - [x] **User Profile**: View/edit own profile; admins can edit any user
-- [ ] Activity Log (Optional - can be added)
 
 ### ✅ Functionality
 
@@ -129,9 +143,9 @@ npm run preview
 
   ```json
   {
-    "name": "John Doe",
-    "email": "john@example.com",
-    "password": "john123"
+    "name": "eman test 1",
+    "email": "emohamed@smart.sa",
+    "password": "eman123"
   }
   ```
 
