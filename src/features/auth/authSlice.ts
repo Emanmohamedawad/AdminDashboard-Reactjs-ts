@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { User, AuthState, AuthResponse } from "../../types/index";
+import type { AuthState, AuthResponse } from "../../types/index";
 
 const initialState: AuthState = {
   user: null,
@@ -16,7 +16,7 @@ if (token && user) {
   try {
     initialState.token = token;
     initialState.user = JSON.parse(user);
-  } catch (error) {
+  } catch {
     // Invalid stored data, clear it
     localStorage.removeItem("token");
     localStorage.removeItem("user");

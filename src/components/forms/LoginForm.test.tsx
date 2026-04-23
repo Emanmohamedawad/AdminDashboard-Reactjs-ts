@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { configureStore, type PreloadedState } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../../features/auth/authSlice";
 import LoginForm from "./LoginForm";
 import type { AuthState } from "../../types/index";
@@ -11,7 +11,9 @@ import type { AuthState } from "../../types/index";
 // Helper to render with Redux and Router
 function renderWithRedux(
   component: React.ReactElement,
-  { preloadedState = {} }: { preloadedState?: PreloadedState<any> } = {},
+  {
+    preloadedState = {},
+  }: { preloadedState?: { auth?: Partial<AuthState> } } = {},
 ) {
   const store = configureStore({
     reducer: {

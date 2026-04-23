@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../app/store";
+import type { RegisterFormData } from "../../types/index";
 import {
   registerStart,
   registerSuccess,
@@ -27,13 +28,6 @@ const registerSchema = Yup.object({
     .required("Please confirm your password")
     .oneOf([Yup.ref("password")], "Passwords must match"),
 });
-
-interface RegisterFormData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
 
 const initialValues: RegisterFormData = {
   name: "",
@@ -189,13 +183,13 @@ const RegisterForm: React.FC = () => {
                                 : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
-                          onFocus={(e) => {
+                          onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               "var(--accent-primary)";
                             e.currentTarget.style.boxShadow =
                               "0 0 0 3px rgba(26, 25, 83, 0.1)";
                           }}
-                          onBlur={(e) => {
+                          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               touched.name && errors.name
                                 ? "var(--error)"
@@ -271,13 +265,13 @@ const RegisterForm: React.FC = () => {
                                 : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
-                          onFocus={(e) => {
+                          onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               "var(--accent-primary)";
                             e.currentTarget.style.boxShadow =
                               "0 0 0 3px rgba(26, 25, 83, 0.1)";
                           }}
-                          onBlur={(e) => {
+                          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               touched.email && errors.email
                                 ? "var(--error)"
@@ -353,13 +347,13 @@ const RegisterForm: React.FC = () => {
                                 : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
-                          onFocus={(e) => {
+                          onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               "var(--accent-primary)";
                             e.currentTarget.style.boxShadow =
                               "0 0 0 3px rgba(26, 25, 83, 0.1)";
                           }}
-                          onBlur={(e) => {
+                          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               touched.password && errors.password
                                 ? "var(--error)"
@@ -435,13 +429,13 @@ const RegisterForm: React.FC = () => {
                                 : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
-                          onFocus={(e) => {
+                          onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               "var(--accent-primary)";
                             e.currentTarget.style.boxShadow =
                               "0 0 0 3px rgba(26, 25, 83, 0.1)";
                           }}
-                          onBlur={(e) => {
+                          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               touched.confirmPassword && errors.confirmPassword
                                 ? "var(--error)"

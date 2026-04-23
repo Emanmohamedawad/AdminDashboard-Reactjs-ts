@@ -45,9 +45,9 @@ const LoginForm: React.FC = () => {
       const response = await authAPI.login(values);
       dispatch(loginSuccess(response));
       navigate("/dashboard");
-    } catch (error: any) {
+    } catch {
       // Don't let the error propagate to prevent page reload
-      const errorMessage = error.response?.data?.message || "Login failed";
+      const errorMessage = "Login failed";
       dispatch(loginFailure(errorMessage));
     } finally {
       setSubmitting(false);
@@ -178,13 +178,13 @@ const LoginForm: React.FC = () => {
                                 : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
-                          onFocus={(e) => {
+                          onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               "var(--accent-primary)";
                             e.currentTarget.style.boxShadow =
                               "0 0 0 3px rgba(26, 25, 83, 0.1)";
                           }}
-                          onBlur={(e) => {
+                          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               touched.email && errors.email
                                 ? "var(--error)"
@@ -260,13 +260,13 @@ const LoginForm: React.FC = () => {
                                 : "var(--border-color)",
                             color: "var(--text-primary)",
                           }}
-                          onFocus={(e) => {
+                          onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               "var(--accent-primary)";
                             e.currentTarget.style.boxShadow =
                               "0 0 0 3px rgba(26, 25, 83, 0.1)";
                           }}
-                          onBlur={(e) => {
+                          onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                             e.currentTarget.style.borderColor =
                               touched.password && errors.password
                                 ? "var(--error)"
@@ -309,7 +309,7 @@ const LoginForm: React.FC = () => {
                       }}
                     >
                       <svg
-                        className="h-5 w-5 flex-shrink-0 mt-0.5"
+                        className="h-5 w-5 shrink-0 mt-0.5"
                         style={{ color: "var(--error)" }}
                         fill="currentColor"
                         viewBox="0 0 20 20"
